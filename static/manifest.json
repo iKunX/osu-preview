@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "osu! preview",
   "description": "Preview an osu! beatmap in your browser.",
   "version": "0.0.6",
@@ -8,9 +8,7 @@
     "128": "icon128.png"
   },
   "background": {
-    "scripts": [
-      "background.js"
-    ]
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
@@ -22,13 +20,15 @@
       ]
     }
   ],
-  "page_action": {
+  "action": {
     "default_icon": "icon48.png",
     "default_popup": "popup.html"
   },
   "permissions": [
-    "tabs",
-    "https://*.ppy.sh/",
-    "http://*.ppy.sh/"
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://*.ppy.sh/*",
+    "http://*.ppy.sh/*"
   ]
 }

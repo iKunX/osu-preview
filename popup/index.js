@@ -120,7 +120,7 @@ const processBeatmap = (rawBeatmap) => {
     previewTime = match ? Number(match[1]) : -1;
   }
 
-  chrome.extension.getBackgroundPage().console.log(cleanBeatmap);
+  console.log(cleanBeatmap);
 
   // Support old beatmaps
   cleanBeatmap.mode = Number(cleanBeatmap.mode || 0);

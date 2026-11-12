@@ -6,19 +6,19 @@ osu! preview is a browser extension that lets you preview the gameplay of a beat
 
 [Chrome Extension](https://chrome.google.com/webstore/detail/osu-preview/higcadegkhhhjcljhpggammlhmlbdcmc?hl=en&authuser=0)
 
-## Prerequisities
+## Prerequisites
 
-Current versions of software used:
+Use a supported Node.js LTS version for local development:
 
 ```shell
 $ node -v
-v17.3.0
+v20.x
 
 $ npm -v
-8.3.0
+10.x
 ```
 
-Everything should work with older versions of both Node and NPM.
+This project targets modern Chromium and Firefox extension APIs and is intended to be built with a current LTS runtime. Older Node/npm versions may still work for some setups, but they are not the supported baseline.
 
 ## Developing
 
