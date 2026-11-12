@@ -1,60 +1,48 @@
 # osu! preview
 
-osu! preview is a browser extension that lets you preview the gameplay of a beatmap.
+Preview an osu! beatmap right from its page. Open the extension popup to see the map in action.
 
-[Firefox Extension](https://addons.mozilla.org/en-CA/firefox/addon/osu-preview/)
+[Get it for Chrome](https://chrome.google.com/webstore/detail/osu-preview/higcadegkhhhjcljhpggammlhmlbdcmc?hl=en&authuser=0) · [Get it for Firefox](https://addons.mozilla.org/en-CA/firefox/addon/osu-preview/)
 
-[Chrome Extension](https://chrome.google.com/webstore/detail/osu-preview/higcadegkhhhjcljhpggammlhmlbdcmc?hl=en&authuser=0)
+## Development
 
-## Prerequisites
+### You’ll need
 
-Use a supported Node.js LTS version for local development:
+- Node.js 20.x
+- npm 10 or later
 
-```shell
-$ node -v
-v20.x
+Install the dependencies:
 
-$ npm -v
-10.x
-```
-
-This project targets modern Chromium and Firefox extension APIs and is intended to be built with a current LTS runtime. Older Node/npm versions may still work for some setups, but they are not the supported baseline.
-
-## Developing
-
-Setup after cloning the repository:
-
-```
+```sh
 npm install
 ```
 
-### Chromium-based browsers
+### Run locally
 
- - Run `npm run start:chrome`. This will create `build` directory inside the directory containing the extension.
- - Open up Chrome and navigate to `chrome://extensions`.
- - Enable `Developer mode`.
- - Click the `Load unpacked` button and select the previously mentioned `build` directory.
- - The extension is now ready to go!
+Start the development build for your browser:
 
-All the changes made are compiled automatically as long as the `npm run start:chrome` script is running.
+```sh
+npm run start:chrome
+# or
+npm run start:firefox
+```
 
-To build a production version of the package, run `npm run build:chrome`.
+Then load the generated `build` folder as an unpacked extension:
 
-### Firefox
+- **Chrome:** open `chrome://extensions`, enable Developer mode, then choose **Load unpacked**.
+- **Firefox:** open `about:debugging#/runtime/this-firefox`, choose **Load Temporary Add-on**, and select a file from `build`.
 
- - Run `npm run start:firefox`. This will create `build` directory inside the directory containing the extension.
- - Open up Firefox and navigate to `about:debugging`.
- - Click the `Load Temporary Add-on` button and select any file in the previously mentioned directory.
- - The extension is now ready to go!
+The development build recompiles as you make changes.
 
-All the changes made are compiled automatically as long as the `npm run start:firefox` script is running.
+### Build a release
 
-To build a production version of the package, run `npm run build:firefox`.
+```sh
+npm run build:chrome
+npm run build:firefox
+```
 
-### Production builds
-
-Run `npm run build:all`. Two files, `osu-preview-chrome.zip` and `osu-preview-firefox.zip`, are generated.
+Each command creates a browser-specific ZIP archive in the project folder.
 
 ## License
 
-[MIT](https://github.com/JerryZhu99/osu-preview/blob/master/LICENSE)
+[MIT](LICENSE)
