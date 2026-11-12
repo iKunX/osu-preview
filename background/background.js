@@ -8,8 +8,8 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   const matchesBeatmapUrl = BEATMAP_URL_REGEX.test(tab.url);
 
   if (changeInfo.status === 'complete' && matchesBeatmapUrl) {
-    chrome.action.show(tabId);
+    chrome.action.enable(tabId);
   } else if (!matchesBeatmapUrl) {
-    chrome.action.hide(tabId);
+    chrome.action.disable(tabId);
   }
 });
